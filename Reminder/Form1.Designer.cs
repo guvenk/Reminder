@@ -88,15 +88,20 @@
             // 
             // txt
             // 
-            this.txt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt.Location = new System.Drawing.Point(12, 12);
+            SetupPositioning();
             this.txt.Multiline = true;
             this.txt.Name = "txt";
             this.txt.Size = new System.Drawing.Size(208, 57);
             this.txt.TabIndex = 0;
             this.txt.Text = "Reminder is working...";
+        }
+
+        private void SetupPositioning()
+        {
+            this.txt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt.Location = new System.Drawing.Point(12, 12);
         }
 
         #endregion

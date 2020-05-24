@@ -18,12 +18,27 @@ namespace Reminder
         public static (int RemainingViewCount, DateTime LastViewed, string Content) DeconstructDbContent(this string item)
         {
             var parts = item.Split("|||");
-            string count = parts.First().Replace(ContentSeperator, string.Empty);
+            string count = GetCount(parts);
             var remainingViewCount = int.Parse(count);
-            var lastViewed = DateTime.Parse(parts.Skip(1).First());
-            var content = parts.Skip(2).First();
+            var lastViewed = GetLastViewed(parts);
+            var content = GetContent(parts);
 
             return (remainingViewCount, lastViewed, content);
+        }
+
+        private static string GetContent(string[] parts)
+        {
+            return parts.Skip(2).First();
+        }
+
+        private static DateTime GetLastViewed(string[] parts)
+        {
+            return DateTime.Parse(parts.Skip(1).First());
+        }
+
+        private static string GetCount(string[] parts)
+        {
+            return parts.First().Replace(ContentSeperator, string.Empty);
         }
 
         public static List<string> SplitContents(this string value)
